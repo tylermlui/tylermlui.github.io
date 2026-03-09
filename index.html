@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rally — Brand Kit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Colitez Serif';
+      src: url('fonts/ColitezSerif-Italic.otf') format('opentype');
+      font-style: italic;
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'Miloner';
+      src: url('fonts/MILONER-Medium.ttf') format('truetype');
+      font-weight: 500;
+    }
+    @font-face {
+      font-family: 'Rosehot';
+      src: url('fonts/Rosehot.ttf') format('truetype');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'Fathan';
+      src: url('fonts/Fathan-DisplaySerif.otf') format('opentype');
+      font-weight: 400;
+    }
+
+    :root {
+      --plum:        #0B1630;
+      --plum-mid:    #1A3260;
+      --plum-soft:   #F0E8D8;
+      --amber:       #C4954A;
+      --amber-light: #EDD9A8;
+      --gold:        #C4954A;
+      --gold-light:  #EDD9A8;
+      --linen:       #FBF7F0;
+      --bone:        #EDE3D0;
+      --ink:         #0A1525;
+      --ink-soft:    #5C5040;
+      --warm-white:  #FEFEF9;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--linen);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── LAYOUT ─────────────────────────────── */
+    .section {
+      padding: 96px 64px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section--full {
+      max-width: 100%;
+      padding: 96px 64px;
+    }
+    .section--dark {
+      background: var(--plum);
+      color: var(--linen);
+    }
+    .section--bone { background: var(--bone); }
+    .section--warm-white { background: var(--warm-white); }
+
+    .divider {
+      width: 100%;
+      height: 2px;
+      background: var(--plum);
+      opacity: 0.12;
+    }
+    .divider--dark { background: rgba(255,255,255,0.12); }
+
+    .label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--plum);
+      margin-bottom: 32px;
+    }
+    .label--light { color: rgba(247,242,234,0.5); }
+
+    /* ─── HERO ────────────────────────────────── */
+    .hero {
+      background: linear-gradient(165deg, #FEFEF9 0%, #FBF7F0 60%, #F2E8D8 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 100%, rgba(196,149,74,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 80% 10%, rgba(196,149,74,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 40px;
+    }
+
+    .hero-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .logo-mark {
+      width: 64px;
+      height: 64px;
+    }
+
+    .hero-wordmark {
+      font-family: 'Colitez Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 96px;
+      letter-spacing: 0.01em;
+      color: var(--plum);
+      line-height: 1;
+    }
+
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 22px;
+      letter-spacing: 0.06em;
+      color: var(--ink-soft);
+      margin-bottom: 64px;
+    }
+
+    .hero-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(10,21,37,0.3);
+    }
+
+    /* ─── SECTION HEADERS ───────────────────── */
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 48px;
+      letter-spacing: 0.04em;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .section-heading--light { color: var(--linen); }
+
+    .section-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ink-soft);
+      letter-spacing: 0.01em;
+      line-height: 1.6;
+      max-width: 540px;
+      margin-bottom: 56px;
+    }
+    .section-sub--light { color: rgba(247,242,234,0.55); }
+
+    /* ─── COLORS ─────────────────────────────── */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+    }
+
+    .color-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .color-swatch {
+      height: 140px;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+    .color-swatch--bordered {
+      border: 1px solid var(--bone);
+    }
+
+    .color-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      font-weight: 400;
+      color: var(--ink);
+      text-transform: uppercase;
+    }
+
+    .color-hex {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-soft);
+      letter-spacing: 0.05em;
+    }
+
+    .color-role {
+      font-size: 11px;
+      color: var(--ink-soft);
+      font-weight: 300;
+      line-height: 1.4;
+    }
+
+    /* ─── TYPOGRAPHY ────────────────────────── */
+    .type-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+    }
+
+    .type-block { }
+
+    .type-specimen {
+      margin-bottom: 32px;
+    }
+
+    .type-spec {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      padding-top: 16px;
+      border-top: 1px solid var(--bone);
+    }
+
+    .type-hierarchy { display: flex; flex-direction: column; gap: 32px; }
+
+    .type-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 32px;
+      align-items: baseline;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(11,22,48,0.12);
+    }
+
+    .type-item-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    /* ─── LOGO SECTION ──────────────────────── */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+    }
+
+    .logo-cell {
+      padding: 56px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      min-height: 280px;
+    }
+
+    .logo-cell--linen   { background: var(--linen); }
+    .logo-cell--bone    { background: var(--bone); }
+    .logo-cell--plum    { background: var(--plum); }
+    .logo-cell--white   { background: #ffffff; }
+
+    .logo-cell-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-top: 12px;
+    }
+    .logo-cell-label--light { color: rgba(247,242,234,0.4); }
+
+    .wordmark-lg {
+      font-family: 'Colitez Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 54px;
+      letter-spacing: 0.01em;
+    }
+    .wordmark-md {
+      font-family: 'Colitez Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 38px;
+      letter-spacing: 0.01em;
+    }
+
+    .wordmark-dark { color: var(--plum); }
+    .wordmark-light { color: var(--linen); }
+    .wordmark-amber { color: var(--amber); }
+
+    .lockup {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    /* ─── VOICE & TONE ──────────────────────── */
+    .voice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .voice-card {
+      padding: 40px;
+      border: 1px solid var(--bone);
+      border-top: 2px solid var(--plum);
+      background: var(--warm-white);
+    }
+
+    .voice-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      margin-bottom: 20px;
+      color: var(--ink);
+    }
+
+    .voice-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .voice-list li {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink-soft);
+      line-height: 1.5;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .voice-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--amber);
+      font-size: 12px;
+    }
+
+    /* ─── COPY EXAMPLES ─────────────────────── */
+    .copy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+    }
+
+    .copy-card {
+      padding: 40px 36px;
+      border-top: 2px solid var(--amber);
+      background: var(--warm-white);
+    }
+
+    .copy-card-use {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 20px;
+    }
+
+    .copy-card-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .copy-card-body {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+
+    /* ─── TAGLINES ───────────────────────────── */
+    .tagline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .tagline-item {
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      display: grid;
+      grid-template-columns: 48px 1fr auto;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .tagline-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--amber);
+      letter-spacing: 0.1em;
+    }
+
+    .tagline-text {
+      font-family: 'Colitez Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      color: var(--linen);
+    }
+
+    .tagline-context {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(247,242,234,0.35);
+      text-align: right;
+    }
+
+    /* ─── DESIGN PRINCIPLES ─────────────────── */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .principle {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .principle-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      color: var(--amber);
+    }
+
+    .principle-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--linen);
+      letter-spacing: 0.02em;
+    }
+
+    .principle-body {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(247,242,234,0.55);
+      line-height: 1.65;
+    }
+
+    /* ─── USAGE RULES ───────────────────────── */
+    .rules-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .rules-col { display: flex; flex-direction: column; gap: 16px; }
+
+    .rules-heading {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .rules-heading--do   { color: var(--amber); }
+    .rules-heading--dont { color: #C15B5B; }
+
+    .rule-item {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink-soft);
+      line-height: 1.55;
+      padding: 16px 20px;
+      background: var(--warm-white);
+      border-left: 2px solid var(--bone);
+    }
+    .rule-item--do   { border-left-color: var(--amber); }
+    .rule-item--dont { border-left-color: #C15B5B; }
+
+    /* ─── PACKAGING MOCKUP ──────────────────── */
+    .mockup-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .mockup-cell {
+      background: var(--plum);
+      padding: 80px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 480px;
+    }
+
+    .mockup-cell--linen { background: var(--linen); }
+
+    .packet {
+      width: 200px;
+      height: 320px;
+      background: var(--plum);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 24px;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(196,149,74,0.3);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.35);
+    }
+
+    .packet::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      left: -40px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(196,149,74,0.12) 0%, transparent 70%);
+    }
+
+    .packet-mark {
+      margin-bottom: 8px;
+    }
+
+    .packet-name {
+      font-family: 'Colitez Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 28px;
+      letter-spacing: 0.01em;
+      color: var(--linen);
+    }
+
+    .packet-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 11px;
+      color: rgba(247,242,234,0.5);
+      letter-spacing: 0.08em;
+    }
+
+    .packet-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(196,149,74,0.5);
+      margin: 8px 0;
+    }
+
+    .packet-dose {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+
+    .packet-count {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      color: rgba(247,242,234,0.3);
+      position: absolute;
+      bottom: 24px;
+    }
+
+    /* Linen variant packet */
+    .packet--linen {
+      background: var(--linen);
+      border-color: rgba(11,22,48,0.2);
+      box-shadow: 0 24px 64px rgba(11,22,48,0.15);
+    }
+    .packet--linen .packet-name { color: var(--plum); }
+    .packet--linen .packet-tagline { color: rgba(11,22,48,0.5); }
+    .packet--linen .packet-divider { background: rgba(11,22,48,0.15); }
+    .packet--linen .packet-count { color: rgba(11,22,48,0.28); }
+
+    /* ─── SOCIAL MOCKUP ─────────────────────── */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+    }
+
+    .social-tile {
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      text-align: center;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-tile--plum    { background: var(--plum); }
+    .social-tile--bone    { background: var(--bone); }
+    .social-tile--amber   { background: var(--amber); }
+    .social-tile--linen   { background: var(--linen); }
+    .social-tile--offwhite { background: var(--warm-white); }
+
+    .social-tile-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.45;
+      color: var(--linen);
+      letter-spacing: 0.02em;
+    }
+
+    .social-tile-quote--dark { color: var(--ink); }
+    .social-tile-quote--plum { color: var(--plum); }
+
+    .social-tile-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(247,242,234,0.4);
+    }
+    .social-tile-tag--dark { color: var(--ink-soft); }
+    .social-tile-tag--amber { color: var(--amber); }
+
+    .social-tile-logo {
+      font-family: 'Colitez Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 22px;
+      letter-spacing: 0.01em;
+    }
+
+    /* ─── PHOTOGRAPHY DIRECTION ─────────────── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .photo-direction {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .photo-mockup {
+      height: 220px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .photo-mockup--night {
+      background: linear-gradient(135deg, #1a0d20 0%, #0d0810 50%, #1f1128 100%);
+    }
+
+    .photo-mockup--morning {
+      background: linear-gradient(135deg, #d8e5ff 0%, #c8d8f0 50%, #dde8ff 100%);
+      color: rgba(11,22,48,0.25);
+    }
+
+    .photo-mockup--flat {
+      background: linear-gradient(135deg, var(--bone) 0%, var(--linen) 100%);
+      color: rgba(11,22,48,0.25);
+    }
+
+    .photo-dir-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+    }
+
+    .photo-dir-body {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    /* ─── FOOTER ─────────────────────────────── */
+    .brand-footer {
+      background: var(--bone);
+      border-top: 1px solid var(--bone);
+      padding: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-footer-logo {
+      font-family: 'Colitez Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 28px;
+      letter-spacing: 0.01em;
+      color: var(--plum);
+    }
+
+    .brand-footer-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    /* ─── UTILITIES ─────────────────────────── */
+    .mt-8  { margin-top: 8px; }
+    .mt-16 { margin-top: 16px; }
+    .mt-24 { margin-top: 24px; }
+    .mt-40 { margin-top: 40px; }
+    .mt-64 { margin-top: 64px; }
+
+    .gap-24 { gap: 24px; }
+
+    .flex { display: flex; }
+    .flex-col { flex-direction: column; }
+    .items-center { align-items: center; }
+    .gap-32 { gap: 32px; }
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <div class="hero">
+    <p class="hero-eyebrow">Brand Identity System · 2025</p>
+    <div class="hero-logo">
+
+      <div class="hero-wordmark">RALLY</div>
+    </div>
+    <p class="hero-tagline">The night was worth it.</p>
+    <p class="hero-meta">Recovery Jelly · Premium Formula · Est. 2025</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       BRAND OVERVIEW
+  ═══════════════════════════════════════ -->
+  <section class="section section--full" style="background:var(--warm-white);">
+    <div style="max-width:1200px; margin:0 auto;">
+      <p class="label">01 — Overview</p>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
+        <div>
+          <h2 class="section-heading">
+            Designed for<br>
+            <em style="font-style:italic; font-weight:300;">the morning after.</em>
+          </h2>
+          <p class="section-sub mt-24" style="max-width:none;">
+            Rally is a premium hangover recovery jelly formulated with over 20 clinically-backed botanicals, adaptogens, and electrolytes. Designed for those who live fully — and intend to keep doing so.
+          </p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:32px; padding-top:8px;">
+          <div>
+            <p style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--amber); margin-bottom:10px;">Position</p>
+            <p style="font-size:15px; font-weight:300; color:var(--ink-soft); line-height:1.6;">Premium, science-backed recovery for the modern social lifestyle. Not clinical. Not basic. Beautifully engineered.</p>
+          </div>
+          <div style="height:1px; background:var(--bone);"></div>
+          <div>
+            <p style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--amber); margin-bottom:10px;">Audience</p>
+            <p style="font-size:15px; font-weight:300; color:var(--ink-soft); line-height:1.6;">25–38. Socially ambitious. Wellness-aware. New York nights, LA mornings. Rooftop bars and pilates before noon.</p>
+          </div>
+          <div style="height:1px; background:var(--bone);"></div>
+          <div>
+            <p style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--amber); margin-bottom:10px;">Product Form</p>
+            <p style="font-size:15px; font-weight:300; color:var(--ink-soft); line-height:1.6;">Single-dose recovery jelly — fast absorption, portable, no pills, no powder. Take it before you drink.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       COLOR SYSTEM
+  ═══════════════════════════════════════ -->
+  <section class="section">
+    <p class="label">02 — Color System</p>
+    <h2 class="section-heading">The palette.</h2>
+    <p class="section-sub">Anchored in deep navy. Warmed by linen, bone, and cream. Lifted by gold. A palette that lives between a late-night bar and a sun-lit morning.</p>
+
+    <div class="color-grid" style="grid-template-columns: repeat(4, 1fr);">
+
+      <div class="color-card">
+        <div class="color-swatch" style="background:#0B1630;">
+          <div style="position:absolute;bottom:16px;left:16px;right:16px;">
+            <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(242,245,255,0.4);">Dark Anchor</div>
+          </div>
+        </div>
+        <div class="color-name">Deep Navy</div>
+        <div class="color-hex">#0B1630</div>
+        <div class="color-role">Brand anchor. Headlines, dark backgrounds, packaging base.</div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background:#1A3260;">
+          <div style="position:absolute;bottom:16px;left:16px;right:16px;">
+            <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(242,245,255,0.4);">Navy Mid</div>
+          </div>
+        </div>
+        <div class="color-name">Admiral</div>
+        <div class="color-hex">#1A3260</div>
+        <div class="color-role">Dark surface variation. Section overlays, gradient mid-tone, packaging depth.</div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background:#C4954A;">
+          <div style="position:absolute;bottom:16px;left:16px;right:16px;">
+            <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);">Gold Accent</div>
+          </div>
+        </div>
+        <div class="color-name">Warm Gold</div>
+        <div class="color-hex">#C4954A</div>
+        <div class="color-role">Prestige accent. Special callouts, rule lines, premium details.</div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch color-swatch--bordered" style="background:#EDD9A8;">
+          <div style="position:absolute;bottom:16px;left:16px;right:16px;">
+            <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(11,22,48,0.35);">Gold Light</div>
+          </div>
+        </div>
+        <div class="color-name">Champagne</div>
+        <div class="color-hex">#EDD9A8</div>
+        <div class="color-role">Gold tint. Subtle warm highlights, dividers on light surfaces.</div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch color-swatch--bordered" style="background:#F5EDE0;">
+          <div style="position:absolute;bottom:16px;left:16px;right:16px;">
+            <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(11,22,48,0.3);">Background 1</div>
+          </div>
+        </div>
+        <div class="color-name">Warm Linen</div>
+        <div class="color-hex">#F5EDE0</div>
+        <div class="color-role">Primary background. Warm, editorial base for light layouts.</div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch color-swatch--bordered" style="background:#E0D4BC;">
+          <div style="position:absolute;bottom:16px;left:16px;right:16px;">
+            <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(11,22,48,0.3);">Background 2</div>
+          </div>
+        </div>
+        <div class="color-name">Bone</div>
+        <div class="color-hex">#E0D4BC</div>
+        <div class="color-role">Secondary surface. Cards, panels, section dividers. Warm and grounded.</div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background:#0A1525;">
+          <div style="position:absolute;bottom:16px;left:16px;right:16px;">
+            <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(242,245,255,0.3);">Text</div>
+          </div>
+        </div>
+        <div class="color-name">Ink</div>
+        <div class="color-hex">#0A1525</div>
+        <div class="color-role">Body copy, fine print. Deep navy-black for maximum readability.</div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch color-swatch--bordered" style="background:#FEFBF5;">
+          <div style="position:absolute;bottom:16px;left:16px;right:16px;">
+            <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(11,22,48,0.2);">White</div>
+          </div>
+        </div>
+        <div class="color-name">Warm Cream</div>
+        <div class="color-hex">#FEFBF5</div>
+        <div class="color-role">Cards, reversed text backgrounds. Never use pure #ffffff.</div>
+      </div>
+
+    </div>
+
+    <!-- Color pairings -->
+    <div class="mt-64">
+      <p style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:24px;">Approved Color Pairings</p>
+      <div style="display:grid; grid-template-columns:repeat(6, 1fr); gap:16px;">
+
+        <div style="height:80px; background:var(--plum); border-radius:4px; display:flex; align-items:center; justify-content:center;">
+          <span style="font-family:'Colitez Serif',serif;font-style:italic;font-weight:400;font-size:28px;letter-spacing:0.01em;color:var(--linen);">RALLY</span>
+        </div>
+
+        <div style="height:80px; background:var(--linen); border-radius:4px; border:1px solid var(--bone); display:flex; align-items:center; justify-content:center;">
+          <span style="font-family:'Colitez Serif',serif;font-style:italic;font-weight:400;font-size:28px;letter-spacing:0.01em;color:var(--plum);">RALLY</span>
+        </div>
+
+        <div style="height:80px; background:var(--plum); border-radius:4px; display:flex; align-items:center; justify-content:center;">
+          <span style="font-family:'Colitez Serif',serif;font-style:italic;font-weight:400;font-size:28px;letter-spacing:0.01em;color:var(--gold);">RALLY</span>
+        </div>
+
+        <div style="height:80px; background:var(--bone); border-radius:4px; display:flex; align-items:center; justify-content:center;">
+          <span style="font-family:'Colitez Serif',serif;font-style:italic;font-weight:400;font-size:28px;letter-spacing:0.01em;color:var(--plum);">RALLY</span>
+        </div>
+
+        <div style="height:80px; background:var(--warm-white); border-radius:4px; border:1px solid var(--bone); display:flex; align-items:center; justify-content:center;">
+          <span style="font-family:'Colitez Serif',serif;font-style:italic;font-weight:400;font-size:28px;letter-spacing:0.01em;color:var(--plum);">RALLY</span>
+        </div>
+
+        <div style="height:80px; background:var(--gold); border-radius:4px; display:flex; align-items:center; justify-content:center;">
+          <span style="font-family:'Colitez Serif',serif;font-style:italic;font-weight:400;font-size:28px;letter-spacing:0.01em;color:var(--plum);">RALLY</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+
+  <!-- ═══════════════════════════════════════
+       TYPOGRAPHY
+  ═══════════════════════════════════════ -->
+  <section class="section section--warm-white section--full">
+    <div style="max-width:1200px; margin:0 auto;">
+      <p class="label">03 — Typography</p>
+      <h2 class="section-heading">Type system.</h2>
+      <p class="section-sub">Two typefaces. One contrast. Editorial luxury meets clean utility.</p>
+
+      <div class="type-showcase">
+
+        <!-- Primary Typeface -->
+        <div class="type-block">
+          <p style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:24px;">Primary · Display</p>
+
+          <div class="type-specimen">
+            <p style="font-family:'Colitez Serif',serif;font-style:italic;font-weight:400;font-size:72px;line-height:1;letter-spacing:0.01em;color:var(--ink);">RALLY</p>
+            <p style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:16px;padding-top:16px;border-top:1px solid var(--bone);">Cormorant Garamond · Light 300</p>
+          </div>
+
+          <div class="type-specimen">
+            <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:48px;line-height:1.2;color:var(--ink);">The night<br>was worth it.</p>
+            <p class="type-spec">Cormorant Garamond · Italic Light 300</p>
+          </div>
+
+          <div class="type-specimen">
+            <p style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:28px;letter-spacing:0.04em;color:var(--ink);">Premium Recovery Formula</p>
+            <p class="type-spec">Cormorant Garamond · Regular 400</p>
+          </div>
+        </div>
+
+        <!-- Secondary Typeface -->
+        <div class="type-block">
+          <p style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:24px;">Secondary · Body & UI</p>
+
+          <div class="type-specimen">
+            <p style="font-family:'DM Sans',sans-serif;font-weight:300;font-size:36px;line-height:1.2;color:var(--ink);">Wake up,<br>ready to go again.</p>
+            <p class="type-spec">DM Sans · Light 300</p>
+          </div>
+
+          <div class="type-specimen">
+            <p style="font-family:'DM Sans',sans-serif;font-weight:400;font-size:16px;line-height:1.7;color:var(--ink-soft);">Rally works with your body before the alcohol does. DHM and a full B-vitamin complex get ahead of the byproducts before your night even starts. Wake up and feel the difference.</p>
+            <p class="type-spec">DM Sans · Regular 400 · Body copy</p>
+          </div>
+
+          <div class="type-specimen" style="margin-bottom:0;">
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <p style="font-family:'DM Mono',monospace;font-weight:400;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--amber);">HOVENIA DULCIS · DHM COMPLEX</p>
+              <p style="font-family:'DM Mono',monospace;font-weight:300;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);">20+ Active Ingredients · Single Dose</p>
+            </div>
+            <p class="type-spec" style="margin-top:16px;">DM Mono · Labels, tags, metadata</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Type Scale -->
+      <div class="mt-64">
+        <p style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:32px;">Type Hierarchy</p>
+        <div class="type-hierarchy">
+          <div class="type-item">
+            <div class="type-item-label">Display / Hero</div>
+            <div style="font-family:'Colitez Serif',serif;font-style:italic;font-weight:400;font-size:56px;letter-spacing:0.02em;line-height:1;color:var(--ink);">The night was worth it.</div>
+          </div>
+          <div class="type-item">
+            <div class="type-item-label">Heading 1</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:36px;letter-spacing:0.02em;color:var(--ink);">Premium Recovery Formula</div>
+          </div>
+          <div class="type-item">
+            <div class="type-item-label">Heading 2</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:26px;letter-spacing:0.02em;color:var(--ink);">What's inside Rally</div>
+          </div>
+          <div class="type-item">
+            <div class="type-item-label">Body Large</div>
+            <div style="font-family:'DM Sans',sans-serif;font-weight:300;font-size:18px;line-height:1.65;color:var(--ink-soft);">Formulated with over 20 active ingredients to help you recover overnight.</div>
+          </div>
+          <div class="type-item">
+            <div class="type-item-label">Body / Copy</div>
+            <div style="font-family:'DM Sans',sans-serif;font-weight:400;font-size:15px;line-height:1.7;color:var(--ink-soft);">Take one jelly before you drink. Wake up feeling like yourself — not like you made a decision you regret.</div>
+          </div>
+          <div class="type-item" style="border-bottom:none;">
+            <div class="type-item-label">Label / Tag</div>
+            <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--amber);">Recovery Jelly · 20+ Ingredients</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       LOGO SYSTEM
+  ═══════════════════════════════════════ -->
+  <section class="section">
+    <p class="label">04 — Logo System</p>
+    <h2 class="section-heading">The mark.</h2>
+    <p class="section-sub">A minimal wordmark. Always set in Colitez Serif italic. Three colorways — linen on navy, navy on linen, and gold on cream.</p>
+  </section>
+
+  <!-- Full-width logo grid -->
+  <div class="logo-grid">
+
+    <!-- Plum bg — primary logo -->
+    <div class="logo-cell logo-cell--plum" style="grid-column: span 2;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:20px;">
+        <span class="wordmark-lg wordmark-light">RALLY</span>
+        <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);">Recovery Jelly</span>
+      </div>
+      <p class="logo-cell-label logo-cell-label--light">Primary · Dark Background</p>
+    </div>
+
+    <!-- Linen bg — reversed logo -->
+    <div class="logo-cell logo-cell--linen">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:20px;">
+        <span class="wordmark-md wordmark-dark">RALLY</span>
+      </div>
+      <p class="logo-cell-label">Reversed · Light Background</p>
+    </div>
+
+    <!-- Bone bg — wordmark only -->
+    <div class="logo-cell logo-cell--bone">
+      <span class="wordmark-md wordmark-dark">RALLY</span>
+      <p class="logo-cell-label">Wordmark Only · Bone</p>
+    </div>
+
+    <!-- White bg -->
+    <div class="logo-cell logo-cell--white">
+      <div class="lockup">
+        <span class="wordmark-md wordmark-dark">RALLY</span>
+      </div>
+      <p class="logo-cell-label">Wordmark · White</p>
+    </div>
+
+    <!-- Gold accent variant -->
+    <div class="logo-cell logo-cell--linen" style="background:var(--warm-white);">
+      <span class="wordmark-md" style="font-family:'Colitez Serif',serif;font-style:italic;font-weight:400;color:var(--gold);">RALLY</span>
+      <p class="logo-cell-label" style="color:var(--ink-soft);">Gold Accent · Special Use</p>
+    </div>
+
+  </div>
+
+
+
+  <!-- ═══════════════════════════════════════
+       TAGLINES
+  ═══════════════════════════════════════ -->
+  <section class="section section--bone section--full">
+    <div style="max-width:1200px; margin:0 auto;">
+      <p class="label">05 — Voice & Taglines</p>
+      <h2 class="section-heading">What Rally says.</h2>
+      <p class="section-sub">Confident without being cocky. Wellness-forward without being clinical. Nightlife-fluent without being reckless.</p>
+
+      <div class="tagline-list">
+        <div class="tagline-item" style="border-bottom-color:rgba(10,21,37,0.1);">
+          <span class="tagline-num" style="color:var(--gold);">01</span>
+          <span class="tagline-text" style="color:var(--plum);">The night was worth it.</span>
+          <span class="tagline-context" style="color:var(--ink-soft);">Hero · Primary Tagline</span>
+        </div>
+        <div class="tagline-item" style="border-bottom-color:rgba(10,21,37,0.1);">
+          <span class="tagline-num" style="color:var(--amber);">02</span>
+          <span class="tagline-text" style="color:var(--plum);">Wake up ready.</span>
+          <span class="tagline-context" style="color:var(--ink-soft);">Product · Packaging</span>
+        </div>
+        <div class="tagline-item" style="border-bottom-color:rgba(10,21,37,0.1);">
+          <span class="tagline-num" style="color:var(--gold);">03</span>
+          <span class="tagline-text" style="color:var(--plum);">Science for the social.</span>
+          <span class="tagline-context" style="color:var(--ink-soft);">Brand · Campaign</span>
+        </div>
+        <div class="tagline-item" style="border-bottom-color:rgba(10,21,37,0.1);">
+          <span class="tagline-num" style="color:var(--amber);">04</span>
+          <span class="tagline-text" style="color:var(--plum);">Twenty ingredients. One jelly. Zero regrets.</span>
+          <span class="tagline-context" style="color:var(--ink-soft);">Product Benefit</span>
+        </div>
+        <div class="tagline-item" style="border-bottom-color:rgba(10,21,37,0.1);">
+          <span class="tagline-num" style="color:var(--gold);">05</span>
+          <span class="tagline-text" style="color:var(--plum);">Recover like it's nothing.</span>
+          <span class="tagline-context" style="color:var(--ink-soft);">Social · Short-form</span>
+        </div>
+        <div class="tagline-item" style="border-bottom-color:rgba(10,21,37,0.1);">
+          <span class="tagline-num" style="color:var(--amber);">06</span>
+          <span class="tagline-text" style="color:var(--plum);">Your liver. Handled.</span>
+          <span class="tagline-context" style="color:var(--ink-soft);">Social · Punchy</span>
+        </div>
+        <div class="tagline-item" style="border-bottom:none;">
+          <span class="tagline-num" style="color:var(--gold);">07</span>
+          <span class="tagline-text" style="color:var(--plum);">Take it tonight. Thank yourself tomorrow.</span>
+          <span class="tagline-context" style="color:var(--ink-soft);">E-commerce · CTA</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       BRAND VOICE
+  ═══════════════════════════════════════ -->
+  <section class="section">
+    <p class="label">06 — Brand Voice</p>
+    <h2 class="section-heading">Personality.</h2>
+    <p class="section-sub">Rally speaks like the smartest person at the after-party — informed, effortless, never trying too hard.</p>
+
+    <div class="voice-grid">
+
+      <div class="voice-card">
+        <div class="voice-card-title">We are</div>
+        <ul class="voice-list">
+          <li><strong>Confident.</strong> We know it works. We don't over-explain it.</li>
+          <li><strong>Minimal.</strong> Short sentences. White space. Let the product speak.</li>
+          <li><strong>Insider.</strong> We speak to people who live in this world — not at them.</li>
+          <li><strong>Premium.</strong> Every word earns its place.</li>
+          <li><strong>Dry-witty.</strong> A raised eyebrow, not a punchline.</li>
+        </ul>
+      </div>
+
+      <div class="voice-card">
+        <div class="voice-card-title">We are not</div>
+        <ul class="voice-list">
+          <li><strong>Clinical.</strong> No "clinically proven" language unless for technical pages.</li>
+          <li><strong>Bro-y.</strong> Not "crush your hangover." Not "beast mode recovery."</li>
+          <li><strong>Preachy.</strong> We don't lecture about drinking. We solve a real need.</li>
+          <li><strong>Discount.</strong> No "deal," "cheap," "budget" vocabulary anywhere.</li>
+          <li><strong>Hype-y.</strong> No exclamation marks unless truly exceptional.</li>
+        </ul>
+      </div>
+
+      <div class="voice-card">
+        <div class="voice-card-title">Write like this</div>
+        <ul class="voice-list">
+          <li>"Before you drink. After a night well spent."</li>
+          <li>"DHM helps your body process alcohol while you rest."</li>
+          <li>"One jelly. That's it."</li>
+          <li>"We put 20 ingredients in it so you don't have to think about it."</li>
+          <li>"Rally. Take it tonight."</li>
+        </ul>
+      </div>
+
+      <div class="voice-card">
+        <div class="voice-card-title">Not like this</div>
+        <ul class="voice-list">
+          <li>"DESTROY your hangover with our POWERFUL formula!"</li>
+          <li>"Get WASTED and wake up FINE!!!"</li>
+          <li>"Our proprietary blend is backed by extensive clinical research studies."</li>
+          <li>"The BEST hangover cure on the market, guaranteed."</li>
+          <li>"Party hard, recover harder."</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+
+  <!-- ═══════════════════════════════════════
+       COPY EXAMPLES
+  ═══════════════════════════════════════ -->
+  <section class="section section--bone section--full">
+    <div style="max-width:1200px; margin:0 auto;">
+      <p class="label">07 — Copy Examples</p>
+      <h2 class="section-heading">Rally in context.</h2>
+      <p class="section-sub">Copy across touchpoints — from homepage to Instagram to hang-tags.</p>
+
+      <div class="copy-grid">
+
+        <div class="copy-card">
+          <p class="copy-card-use">Homepage Hero</p>
+          <p class="copy-card-text">The night was worth it. Now let's make sure the morning is too.</p>
+          <p class="copy-card-body">Rally is a premium recovery jelly formulated with DHM, milk thistle, electrolytes, and a full B-vitamin complex. Take one before you drink. Wake up ready.</p>
+        </div>
+
+        <div class="copy-card" style="border-top-color:var(--plum);">
+          <p class="copy-card-use" style="color:var(--plum);">Instagram Caption</p>
+          <p class="copy-card-text">Three birthdays this month. Zero bad mornings.</p>
+          <p class="copy-card-body">Rally works before the night starts. One jelly before you drink — DHM, liver support, electrolytes, and the B-vitamins alcohol drains. Wake up and do it again.<br><br>@take.rally · Link in bio.</p>
+        </div>
+
+        <div class="copy-card">
+          <p class="copy-card-use">Product Description</p>
+          <p class="copy-card-text">Twenty ingredients. One jelly.</p>
+          <p class="copy-card-body">Hovenia dulcis (DHM), turmeric, milk thistle, schisandra, kudzu root, ginger, L-cysteine, taurine, sodium, potassium, magnesium, B1, B2, B3, B6, B12, vitamin C. Everything your body loses when you drink. Everything it needs to bounce back.<br><br>Take one before you drink.</p>
+        </div>
+
+        <div class="copy-card">
+          <p class="copy-card-use">Out-of-Home / Minimal</p>
+          <p class="copy-card-text">Sleep. Recover. Rally.</p>
+          <p class="copy-card-body">The three-word campaign. Perfect for billboard, station posters, and minimalist social tiles.</p>
+        </div>
+
+        <div class="copy-card" style="border-top-color:var(--plum);">
+          <p class="copy-card-use" style="color:var(--plum);">Email Subject Lines</p>
+          <p class="copy-card-text">The ones that open.</p>
+          <p class="copy-card-body">
+            "Ready for Friday?"<br>
+            "Your liver called."<br>
+            "What's actually in Rally."<br>
+            "Before you go out tonight."<br>
+            "Wake up different."<br>
+            "DHM: the ingredient that changes everything."
+          </p>
+        </div>
+
+        <div class="copy-card">
+          <p class="copy-card-use">Packaging Rear Panel</p>
+          <p class="copy-card-text">What it does before you drink.</p>
+          <p class="copy-card-body">DHM gets ahead of acetaldehyde before it builds up. Milk thistle and schisandra prime your liver. B-vitamins prepare what alcohol will drain. Electrolytes get you ahead of dehydration. Ginger keeps your stomach settled. Taurine and turmeric reduce inflammation before it starts.<br><br>Rally. That's the whole plan.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       DESIGN PRINCIPLES
+  ═══════════════════════════════════════ -->
+  <section class="section section--warm-white section--full">
+    <div style="max-width:1200px; margin:0 auto;">
+      <p class="label">08 — Design Principles</p>
+      <h2 class="section-heading">How we look.</h2>
+      <p class="section-sub">Four principles that govern every creative decision.</p>
+
+      <div class="principles-grid">
+        <div class="principle">
+          <p class="principle-num">01</p>
+          <p class="principle-title" style="color:var(--ink);">Restraint over decoration</p>
+          <p class="principle-body" style="color:var(--ink-soft);">Remove before you add. Every element must justify its presence. White space is not empty — it's confident.</p>
+        </div>
+        <div class="principle">
+          <p class="principle-num">02</p>
+          <p class="principle-title" style="color:var(--ink);">Warmth over sterility</p>
+          <p class="principle-body" style="color:var(--ink-soft);">Cream over white. Bone over slate. Gold over yellow. Plum over black. Everything has warmth — we're premium, not cold.</p>
+        </div>
+        <div class="principle">
+          <p class="principle-num">03</p>
+          <p class="principle-title" style="color:var(--ink);">Editorial not clinical</p>
+          <p class="principle-body" style="color:var(--ink-soft);">We communicate ingredients and science through the aesthetic lens of a luxury magazine, not a pharmacy shelf.</p>
+        </div>
+        <div class="principle">
+          <p class="principle-num">04</p>
+          <p class="principle-title" style="color:var(--ink);">Night to morning arc</p>
+          <p class="principle-body" style="color:var(--ink-soft);">Our visual world spans from deep navy (nightlife) to warm cream (morning light). Both are Rally. Both are ours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       PACKAGING MOCKUP
+  ═══════════════════════════════════════ -->
+  <section class="section">
+    <p class="label">09 — Packaging Concept</p>
+    <h2 class="section-heading">Product form.</h2>
+    <p class="section-sub">Single-serve jelly packet. Two colorways — Dark (primary) and Linen (limited / gifting).</p>
+  </section>
+
+  <div class="mockup-grid">
+
+    <div class="mockup-cell">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:40px;">
+        <!-- Dark packet -->
+        <div class="packet">
+          <div class="packet-name">RALLY</div>
+          <div class="packet-tagline">Recovery Jelly</div>
+          <div class="packet-divider" style="background:rgba(196,149,74,0.5);"></div>
+          <div class="packet-dose" style="color:var(--gold);">Take before you drink</div>
+          <div style="height:1px;width:32px;background:rgba(196,149,74,0.2);margin-top:8px;"></div>
+          <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.1em;color:rgba(247,242,234,0.25);text-align:center;line-height:1.6;">DHM · Milk Thistle<br>Electrolytes · B-Vitamins</div>
+          <div class="packet-count">30ml · Single Dose</div>
+        </div>
+        <p style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(247,242,234,0.35);">Dark Colorway · Primary</p>
+      </div>
+    </div>
+
+    <div class="mockup-cell mockup-cell--linen">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:40px;">
+        <!-- Linen packet -->
+        <div class="packet packet--linen">
+          <div class="packet-name">RALLY</div>
+          <div class="packet-tagline" style="color:rgba(11,22,48,0.45);">Recovery Jelly</div>
+          <div class="packet-divider" style="background:rgba(11,22,48,0.12);"></div>
+          <div class="packet-dose" style="color:var(--amber);">Take before you drink</div>
+          <div style="height:1px;width:32px;background:rgba(11,22,48,0.08);margin-top:8px;"></div>
+          <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.1em;color:rgba(11,22,48,0.3);text-align:center;line-height:1.6;">DHM · Milk Thistle<br>Electrolytes · B-Vitamins</div>
+          <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.1em;color:rgba(11,22,48,0.2);position:absolute;bottom:24px;">30ml · Single Dose</div>
+        </div>
+        <p style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);">Linen Colorway · Limited / Gift</p>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       SOCIAL MEDIA GRID
+  ═══════════════════════════════════════ -->
+  <section class="section">
+    <p class="label">10 — Social Media</p>
+    <h2 class="section-heading">Feed aesthetic.</h2>
+    <p class="section-sub">The Rally feed alternates dark and light. Editorial quotes, ingredient close-ups, and lifestyle moments. Never chaotic.</p>
+  </section>
+
+  <div class="social-grid">
+
+    <div class="social-tile" style="background:var(--plum);">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:16px;">
+        <p class="social-tile-logo" style="color:var(--linen);">RALLY</p>
+        <p class="social-tile-tag" style="color:var(--amber);">Recovery Jelly</p>
+      </div>
+    </div>
+
+    <div class="social-tile social-tile--linen">
+      <p class="social-tile-quote social-tile-quote--plum" style="font-size:16px;">"The night was worth it."</p>
+      <p class="social-tile-tag social-tile-tag--amber">@take.rally</p>
+    </div>
+
+    <div class="social-tile social-tile--bone">
+      <p style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--amber);margin-bottom:12px;">Key Ingredient</p>
+      <p style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:20px;color:var(--plum);letter-spacing:0.02em;">Hovenia dulcis</p>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--ink-soft);margin-top:6px;">Oriental Raisin Tree · DHM</p>
+      <div style="width:32px;height:1px;background:var(--amber);margin:16px auto;opacity:0.5;"></div>
+      <p style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:300;color:var(--ink-soft);line-height:1.5;text-align:center;">Helps your body process alcohol faster. The ingredient everything else is built around.</p>
+    </div>
+
+    <div class="social-tile" style="background:var(--linen);">
+      <p class="social-tile-quote social-tile-quote--plum" style="font-size:16px;">"Twenty ingredients. One jelly. Zero regrets."</p>
+      <p class="social-tile-tag social-tile-tag--amber">Rally · Recovery Jelly</p>
+    </div>
+
+    <div class="social-tile" style="background:var(--warm-white);padding:40px;">
+      <div style="display:flex;flex-direction:column;gap:8px;width:100%;">
+        <p style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.18em;text-transform:uppercase;color:var(--amber);margin-bottom:8px;">What's inside</p>
+        <p style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:300;color:var(--ink-soft);line-height:2;">DHM · Turmeric · Milk Thistle<br>Schisandra · Kudzu Root<br>L-Cysteine · Taurine<br>Ginger · Licorice Root<br>Sodium · Potassium · Magnesium<br>B1 · B2 · B3 · B6 · B12 · C</p>
+      </div>
+    </div>
+
+    <div class="social-tile social-tile--linen">
+      <p class="social-tile-quote social-tile-quote--plum" style="font-size:15px;">"Take it tonight. Thank yourself tomorrow."</p>
+      <div style="width:24px;height:1px;background:var(--amber);"></div>
+      <p class="social-tile-tag social-tile-tag--amber">RALLY</p>
+    </div>
+
+    <div class="social-tile social-tile--bone">
+      <p style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:16px;">How it works</p>
+      <div style="display:flex;flex-direction:column;gap:10px;width:100%;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--amber);">01</span>
+          <span style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:300;color:var(--ink-soft);">Take one jelly before you drink</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--amber);">02</span>
+          <span style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:300;color:var(--ink-soft);">DHM gets to work right away</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--amber);">03</span>
+          <span style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:300;color:var(--ink-soft);">Wake up. Rally.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="social-tile" style="background:var(--plum);">
+      <p class="social-tile-quote" style="font-size:15px;">"Science for the social."</p>
+      <p class="social-tile-tag">@rallyjelly</p>
+    </div>
+
+    <div class="social-tile" style="background:var(--gold);">
+      <p class="social-tile-logo" style="color:var(--plum);font-size:36px;">RALLY</p>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12px;color:rgba(11,22,48,0.5);letter-spacing:0.06em;">Recovery Jelly</p>
+    </div>
+
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       PHOTOGRAPHY DIRECTION
+  ═══════════════════════════════════════ -->
+  <section class="section section--warm-white section--full">
+    <div style="max-width:1200px; margin:0 auto;">
+      <p class="label">11 — Photography</p>
+      <h2 class="section-heading">Visual direction.</h2>
+      <p class="section-sub">Three photographic worlds. All of them are Rally.</p>
+
+      <div class="photo-grid">
+
+        <div class="photo-direction">
+          <div class="photo-mockup photo-mockup--night">
+            Night world
+          </div>
+          <p class="photo-dir-title">The Night</p>
+          <p class="photo-dir-body">Dimly lit bars and clubs. Warm candlelight. Champagne reflections. Crowded rooftops. Deep shadows with amber highlights. Shot on film aesthetic. Never chaotic — curated, editorial nightlife.</p>
+        </div>
+
+        <div class="photo-direction">
+          <div class="photo-mockup photo-mockup--morning">
+            Morning world
+          </div>
+          <p class="photo-dir-title">The Morning</p>
+          <p class="photo-dir-body">Sun-drenched apartments. Linen sheets. Coffee and Rally on a marble countertop. Effortless morning energy. Clean light, warm tones, soft focus. The reward for taking Rally before the night out.</p>
+        </div>
+
+        <div class="photo-direction">
+          <div class="photo-mockup photo-mockup--flat">
+            Product world
+          </div>
+          <p class="photo-dir-title">The Product</p>
+          <p class="photo-dir-body">Clean flat-lays on linen or bone surfaces. Packet next to botanicals — turmeric root, ginger, dried jujube. Macro shots of ingredients. Editorial, not clinical. Think Aesop or Glossier, not CVS.</p>
+        </div>
+
+      </div>
+
+      <div class="mt-64">
+        <div class="rules-grid">
+          <div class="rules-col">
+            <p class="rules-heading rules-heading--do">Shoot this</p>
+            <div class="rule-item rule-item--do">Low-light, warm-toned bar interiors — candles, amber glows, bokeh</div>
+            <div class="rule-item rule-item--do">Morning light on skin, sheets, and surfaces. Effortless, not posed</div>
+            <div class="rule-item rule-item--do">Product on linen/bone with natural botanicals and textures</div>
+            <div class="rule-item rule-item--do">Real people. Diverse. Confident. Well-dressed but not costumey</div>
+            <div class="rule-item rule-item--do">Film grain, soft tones, slightly warm color grading</div>
+          </div>
+          <div class="rules-col">
+            <p class="rules-heading rules-heading--dont">Never this</p>
+            <div class="rule-item rule-item--dont">Sloppy party scenes — red cups, vomiting references, recklessness</div>
+            <div class="rule-item rule-item--dont">Overly bright studio-white clinical photography</div>
+            <div class="rule-item rule-item--dont">Stock photo energy — forced smiles, generic concepts</div>
+            <div class="rule-item rule-item--dont">Cluttered backgrounds, multiple competing focal points</div>
+            <div class="rule-item rule-item--dont">Heavy filters, oversaturated colors, neon aesthetics</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       USAGE RULES
+  ═══════════════════════════════════════ -->
+  <section class="section">
+    <p class="label">12 — Usage Rules</p>
+    <h2 class="section-heading">The guardrails.</h2>
+    <p class="section-sub">Consistency protects the brand. These are not suggestions.</p>
+
+    <div class="rules-grid">
+      <div class="rules-col">
+        <p class="rules-heading rules-heading--do">Always</p>
+        <div class="rule-item rule-item--do">Set the wordmark in Cormorant Garamond Light with wide tracking (0.25–0.30em)</div>
+        <div class="rule-item rule-item--do">Use warm linen (#F5EDE0) or bone (#E0D4BC) for light backgrounds — never pure white (#ffffff)</div>
+        <div class="rule-item rule-item--do">Use the deep navy-to-white contrast when possible — it's the brand's core visual tension</div>
+        <div class="rule-item rule-item--do">Maintain generous whitespace — aim for at least 40% breathing room on any composition</div>
+        <div class="rule-item rule-item--do">Keep warm gold (#C4954A) as an accent, not a dominant background — use linen and bone for surfaces</div>
+        <div class="rule-item rule-item--do">Use DM Mono for all labels, tags, and metadata — never decorative</div>
+        <div class="rule-item rule-item--do">Write in short, declarative sentences. Maximum 2 sentences for any body copy block.</div>
+      </div>
+      <div class="rules-col">
+        <p class="rules-heading rules-heading--dont">Never</p>
+        <div class="rule-item rule-item--dont">Stretch, skew, or outline the wordmark</div>
+        <div class="rule-item rule-item--dont">Place the logo on a busy photographic background without a color block</div>
+        <div class="rule-item rule-item--dont">Use green — not in the palette, not as an accent, not for "organic" or "wellness" signaling</div>
+        <div class="rule-item rule-item--dont">Use more than 3 type sizes on a single layout</div>
+        <div class="rule-item rule-item--dont">Add drop shadows, gradients, or textures to the wordmark</div>
+        <div class="rule-item rule-item--dont">Use exclamation marks in headlines or product names</div>
+        <div class="rule-item rule-item--dont">Mix DM Sans and DM Mono in a single text block — they serve different roles</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="brand-footer">
+    <div class="brand-footer-logo">RALLY</div>
+    <div style="text-align:center;">
+      <div style="display:flex;gap:48px;align-items:center;">
+        <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);">#0B1630 · #C4954A · #FBF7F0 · #EDE3D0 · #FEFEF9</span>
+      </div>
+    </div>
+    <div class="brand-footer-meta">Brand Kit · 2025</div>
+  </footer>
+
+</body>
+</html>
